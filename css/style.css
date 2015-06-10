@@ -16,15 +16,15 @@ html, body {
   min-height: 100%;
 }
 
-.title {
+.row#title {
   background-color: #ffffff;
 }
 
-.shire {
+.row#shire {
   background-color: #000000;
   color: #ffffff
 }
 
-.sese {
+.row#sese {
   background-color: #ffffff;
 }
