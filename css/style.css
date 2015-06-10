@@ -1,0 +1,30 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.row {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+}
+
+.title {
+  background-color: #ffffff;
+}
+
+.shire {
+  background-color: #000000;
+  color: #ffffff
+}
+
+.sese {
+  background-color: #ffffff;
+}
