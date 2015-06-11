@@ -15,7 +15,7 @@ $(function(){
   $(window).scroll(scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
 
-  window.scrollTo($(".shire").width(), 0);
+  window.scrollTo($("#shire").width(), 0);
 
   $(window).on("scrollstop", function(){
 
