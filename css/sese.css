@@ -1,0 +1,22 @@
+#sese {
+  height: 100%;
+  color: white;
+}
+#sese a {
+  color: inherit;
+  text-decoration: none;
+}
+#sese a:hover {
+  text-decoration: line-through;
+}
+#sese .sese {
+  display: table;
+  height: 100%;
+}
+#sese .profile {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 100%;
+  height: 100%;
+}
