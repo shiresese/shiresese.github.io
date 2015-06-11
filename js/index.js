@@ -6,7 +6,6 @@ $(function(){
   var delay = 200;
   var timer;
   function scrollStopEventTrigger(){
-    console.log(window.scrollX);
     if (timer) {
       clearTimeout(timer);
     }
@@ -16,7 +15,7 @@ $(function(){
   $(window).scroll(scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
 
-  window.scrollTo(window.outerWidth, 0);
+  window.scrollTo($(".shire").width(), 0);
 
   $(window).on("scrollstop", function(){
 

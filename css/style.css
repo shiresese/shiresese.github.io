@@ -7,7 +7,6 @@ html, body {
 .cols {
   width: 300%;
   height: 100%;
-  overflow: hidden;
 }
 
 .cols::before,
