@@ -1,34 +1,25 @@
-var scrollMargin = 50;
 
-var rows = new Array();
-
-var CRow = function(element, top){
-  this.top = top;
-  this.element = element;
-}
-
-function fixedScroll(){
-  var pos = window.scrollY;
-  rows.forEach(function(row){
-    if(pos < row.top - scrollMargin){
-      window.location = Config.basePath + "#" + $(row.element).attr("id");
-    }
-  })
-
-}
+var currentPage = "srss";
 
 $(function(){
-  var rowElements = document.getElementsByClassName("row");
-  var currentHeight = 0;
-  if(rowElements.length > 0){
-    for(var i = 0; i < rowElements.length; i++){
-      rows.push(new CRow(rowElements[i], currentHeight));
-      currentHeight += $(rowElements[i]).height();
+  var scrollStopEvent = new $.Event("scrollstop");
+  var delay = 200;
+  var timer;
+  function scrollStopEventTrigger(){
+    console.log(window.scrollX);
+    if (timer) {
+      clearTimeout(timer);
     }
+    timer = setTimeout(function(){$(window).trigger(scrollStopEvent)}, delay);
   }
 
-  window.onscroll = fixedScroll;
+  $(window).scroll(scrollStopEventTrigger);
+  $("body").on("touchmove", scrollStopEventTrigger);
 
-  console.log(rows);
+  window.scrollTo(window.outerWidth, 0);
+
+  $(window).on("scrollstop", function(){
+
+  });
 
 });

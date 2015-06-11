@@ -4,27 +4,39 @@ html, body {
   margin: 0;
 }
 
-.background {
-  width: 100%;
+.cols {
+  width: 300%;
   height: 100%;
+  overflow: hidden;
+}
+
+.cols::before,
+.cols::after {
+  content: "";
+  display: table;
+}
+
+.cols::after {
+  clear: both;
+}
+
+.col {
+  float: left;
+  width: 33.33333%;
   text-align: center;
 }
 
-.row {
-  display: block;
+.srss{
+  background-color: #ffffff;
   width: 100%;
-  min-height: 100%;
 }
 
-.row#title {
-  background-color: #ffffff;
+.shire {
+  background-color: #797979;
+  width: 100%;
 }
 
-.row#shire {
-  background-color: #000000;
-  color: #ffffff
-}
-
-.row#sese {
-  background-color: #ffffff;
+.sese {
+  background-color: #3d3d3d;
+  width: 100%;
 }
