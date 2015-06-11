@@ -14,8 +14,15 @@ $(function(){
 
   $(window).scroll(scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
-
-  window.scrollTo($("#shire").width(), 0);
+  if(window.location.hash === "") {
+    window.scrollTo($("#shire").width(), 0);
+  } else {
+    if(window.location.hash === "#shire") {
+      window.scrollTo(0, 0);
+    } else if(window.location.hash === "#shire") {
+      window.scrollTo($("#shire").width() + $("#srss").width(), 0);
+    }
+  }
 
   $(window).on("scrollstop", function(){
 
