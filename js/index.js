@@ -26,7 +26,7 @@ $(function(){
 
   $(window).scroll(scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
-  $(window).on("reload", initPos);
+  document.addEventLister("unload", initPos);
   $(window).on("scrollstop", function(){
 
   });
