@@ -7,7 +7,7 @@ function initPos(){
   } else {
     if(window.location.hash === "#shire") {
       window.scrollTo(0, 0);
-    } else if(window.location.hash === "#shire") {
+    } else if(window.location.hash === "#sese") {
       window.scrollTo($("#shire").width() + $("#srss").width(), 0);
     }
   }
@@ -26,7 +26,7 @@ $(function(){
 
   $(window).scroll(scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
-
+  $(window).on("reload", initPos);
   $(window).on("scrollstop", function(){
 
   });
