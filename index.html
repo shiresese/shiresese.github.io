@@ -14,7 +14,7 @@
   <body>
     <div class="js-loader">
       <script type="text/javascript" src="./vendor/jquery/jquery.min.js"></script>
-      <script type="text/javascript" src="./vendor/jquery/jquery.smoothScroll.js"></script>
+      <!--+js('/vendor/jquery/jquery.smoothScroll.js')-->
       <!--+js('/vendor/bootstrap/js/bootstrap.min.js')-->
       <script type="text/javascript" src="./js/index.js"></script>
       <script type="text/javascript">
@@ -23,6 +23,10 @@
           Config.basePath = "http://shiresese.github.io";
         })
       </script>
+    </div>
+    <div class="arrows">
+      <div id="left-arrow" class="arrow arrow-left"><i class="fa fa-angle-left"></i></div>
+      <div id="right-arrow" class="arrow arrow-right"><i class="fa fa-angle-right"></i></div>
     </div>
     <div id="body" class="cols">
       <div id="shire" class="col">

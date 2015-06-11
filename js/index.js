@@ -60,12 +60,12 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll(0, 0);
-          window.location.hash = "#shire";
+          //window.location.hash = "#shire";
           currentPage = EPage.SHIRE;
           break;
         case EVector.RIGHT:
           smoothScroll($("#shire").width() + $("#srss").width(), 0);
-          window.location.hash = "#sese";
+          //window.location.hash = "#sese";
           currentPage = EPage.SHIRE;
           break;
       }
@@ -74,12 +74,12 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll($("#shire").width() + $("#srss").width(), 0);
-          window.location.hash = "#sese";
+          //window.location.hash = "#sese";
           currentPage = EPage.SESE;
           break;
         case EVector.RIGHT:
           smoothScroll($("#shire").width(), 0);
-          window.location.hash = "";
+          //window.location.hash = "";
           currentPage = EPage.SRSS;
           break;
       }
@@ -88,12 +88,12 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll($("#shire").width(), 0);
-          window.location.hash = "";
+          //window.location.hash = "";
           currentPage = EPage.SRSS;
           break;
         case EVector.RIGHT:
           smoothScroll(0, 0);
-          window.location.hash = "#shire";
+          //window.location.hash = "#shire";
           currentPage = EPage.SHIRE;
           break;
       }

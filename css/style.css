@@ -25,6 +25,39 @@ html, body {
   text-align: center;
 }
 
+.arrows {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+}
+
+.arrows > div {
+  margin: calc( 40% - 20px ) 0;
+  margin: -webkit-calc( 25% - 20px ) 0;
+  padding: 0 20px;
+}
+
+.arrows > .arrow-left {
+  float: left;
+  text-align: left;
+}
+.arrows > .arrow-right {
+  float: right;
+}
+.arrow > i {
+  font-size: 10em;
+  color: #454545;
+}
+.arrow {
+  opacity: 0.5;
+  transition: all .15s cubic-bezier(0.4,0,.2,1);
+}
+.arrow:focus,
+.arrow:hover {
+  opacity: 1.0;
+}
+
 .srss{
   background-color: #ffffff;
   width: 100%;
