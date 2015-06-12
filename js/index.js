@@ -115,13 +115,13 @@ function checkScroll(){
   var x = window.scrollX;
   var colWidth = $("#shire").width();
   if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
-    changeHash(EVector.RIGHT);
-  } else if(0 < x && x < colWidth * 2 - width - moveMargin){
-    changeHash(EVector.LEFT);
+    window.location.hash = "";
+  } else if(0 < x && x < colWidth * 2 - colWidth - moveMargin){
+    window.location.hash = "#shire";
   } else if(colWidth * 2 + moveMargin < x && x < $("body").width()){
-    changeHash(EVector.RIGHT);
+    window.location.hash = "#sese";
   } else if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
-    changeHash(EVector.LEFT);
+    window.location.hash = "";
   }
 }
 
