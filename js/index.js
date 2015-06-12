@@ -9,7 +9,6 @@ var EPage = {
 };
 var PageName = ["shire", "srss", "sese"];
 
-
 var currentPage;
 
 function changeHash(direction) {
@@ -47,7 +46,7 @@ function easeInCubic(flame, end, time){
 }
 
 function animateMove(moveX, moveY, startX, startY, numOfFlame, flame, time){
-  console.log(moveX, moveY, startX, startY, numOfFlame, flame, time);
+  //console.log(moveX, moveY, startX, startY, numOfFlame, flame, time);
   window.scrollTo(startX + easeInCubic(flame, moveX, numOfFlame), startY + easeInCubic(flame, moveY, numOfFlame));
   if(numOfFlame > flame){
     window.setTimeout(
@@ -76,12 +75,10 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll(0, 0);
-          //window.location.hash = "#shire";
           currentPage = EPage.SHIRE;
           break;
         case EVector.RIGHT:
           smoothScroll($("#shire").width() + $("#srss").width(), 0);
-          //window.location.hash = "#sese";
           currentPage = EPage.SHIRE;
           break;
       }
@@ -90,12 +87,10 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll($("#shire").width() + $("#srss").width(), 0);
-          //window.location.hash = "#sese";
           currentPage = EPage.SESE;
           break;
         case EVector.RIGHT:
           smoothScroll($("#shire").width(), 0);
-          //window.location.hash = "";
           currentPage = EPage.SRSS;
           break;
       }
@@ -104,16 +99,28 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll($("#shire").width(), 0);
-          //window.location.hash = "";
           currentPage = EPage.SRSS;
           break;
         case EVector.RIGHT:
           smoothScroll(0, 0);
-          //window.location.hash = "#shire";
           currentPage = EPage.SHIRE;
           break;
       }
       break;
+  }
+}
+var moveMargin = 20;
+function checkScroll(){
+  var x = window.scrollX;
+  var colWidth = $("#shire").width();
+  if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
+    changeHash(EVector.RIGHT);
+  } else if(0 < x && x < colWidth * 2 - colWidth - moveMargin){
+    changeHash(EVector.LEFT);
+  } else if(colWidth * 2 + moveMargin < x && x < $("body").width()){
+    changeHash(EVector.RIGHT);
+  } else if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
+    changeHash(EVector.LEFT);
   }
 }
 
@@ -122,7 +129,8 @@ $(function(){
   var scrollStopEvent = new $.Event("scrollstop");
   var delay = 200;
   var timer;
-  function scrollStopEventTrigger(){
+  function scrollStopEventTrigger(e){
+    console.log(e);
     if (timer) {
       clearTimeout(timer);
     }
@@ -130,19 +138,19 @@ $(function(){
   }
   $(window).on("scroll", scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
+
   $(window).on("resize", initPos);
 
   $(window).on("unload", initPos);
-  $(window).on("scrollstop", function(){
-  });
+  $(window).on("scrollstop", checkScroll);
 
   $(".arrow").on("click", function(){
     switch ($(this).attr("id")){
       case "left-arrow":
-        movePage(EVector.LEFT);
+        changeHash(EVector.LEFT);
         break;
       case "right-arrow":
-        movePage(EVector.RIGHT);
+        changeHash(EVector.RIGHT);
         break;
     }
   });
