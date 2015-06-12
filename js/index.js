@@ -115,13 +115,13 @@ function checkScroll(){
   var x = window.scrollX;
   var colWidth = $("#shire").width();
   if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
-    window.location.hash = "";
+    changeHash(EVector.RIGHT);
   } else if(0 < x && x < colWidth * 2 - colWidth - moveMargin){
-    window.location.hash = "#shire";
+    changeHash(EVector.LEFT);
   } else if(colWidth * 2 + moveMargin < x && x < $("body").width()){
-    window.location.hash = "#sese";
+    changeHash(EVector.RIGHT);
   } else if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
-    window.location.hash = "";
+    changeHash(EVector.LEFT);
   }
 }
 
@@ -137,22 +137,21 @@ $(function(){
     }
     timer = setTimeout(function(){$(window).trigger(scrollStopEvent)}, delay);
   }
-  $(window).on("scroll", checkScroll);
+  $(window).on("scroll", scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
 
   $(window).on("resize", initPos);
 
   $(window).on("unload", initPos);
-  $(window).on("scrollstop", function(){
-  });
+  $(window).on("scrollstop", checkScroll);
 
   $(".arrow").on("click", function(){
     switch ($(this).attr("id")){
       case "left-arrow":
-        movePage(EVector.LEFT);
+        changeHash(EVector.LEFT);
         break;
       case "right-arrow":
-        movePage(EVector.RIGHT);
+        changeHash(EVector.RIGHT);
         break;
     }
   })
