@@ -31,7 +31,7 @@ function easeInCubic(flame, end, time){
 }
 
 function animateMove(moveX, moveY, startX, startY, numOfFlame, flame, time){
-  console.log(moveX, moveY, startX, startY, numOfFlame, flame, time);
+  //console.log(moveX, moveY, startX, startY, numOfFlame, flame, time);
   window.scrollTo(startX + easeInCubic(flame, moveX, numOfFlame), startY + easeInCubic(flame, moveY, numOfFlame));
   if(numOfFlame > flame){
     window.setTimeout(
