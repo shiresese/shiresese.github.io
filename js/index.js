@@ -7,6 +7,7 @@ var EPage = {
   SHIRE: 1,
   SESE: 2
 }
+
 var currentPage;
 
 function initPos(){
@@ -60,12 +61,10 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll(0, 0);
-          //window.location.hash = "#shire";
           currentPage = EPage.SHIRE;
           break;
         case EVector.RIGHT:
           smoothScroll($("#shire").width() + $("#srss").width(), 0);
-          //window.location.hash = "#sese";
           currentPage = EPage.SHIRE;
           break;
       }
@@ -74,12 +73,10 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll($("#shire").width() + $("#srss").width(), 0);
-          //window.location.hash = "#sese";
           currentPage = EPage.SESE;
           break;
         case EVector.RIGHT:
           smoothScroll($("#shire").width(), 0);
-          //window.location.hash = "";
           currentPage = EPage.SRSS;
           break;
       }
@@ -88,16 +85,28 @@ function movePage(vec){
       switch (vec) {
         case EVector.LEFT:
           smoothScroll($("#shire").width(), 0);
-          //window.location.hash = "";
           currentPage = EPage.SRSS;
           break;
         case EVector.RIGHT:
           smoothScroll(0, 0);
-          //window.location.hash = "#shire";
           currentPage = EPage.SHIRE;
           break;
       }
       break;
+  }
+}
+var moveMargin = 20;
+function checkScroll(){
+  var x = window.scrollX;
+  var colWidth = $("#shire").width();
+  if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
+    changeHash(EVector.RIGHT);
+  } else if(0 < x && x < colWidth * 2 - width - moveMargin){
+    changeHash(EVector.LEFT);
+  } else if(colWidth * 2 + moveMargin < x && x < $("body").width()){
+    changeHash(EVector.RIGHT);
+  } else if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
+    changeHash(EVector.LEFT);
   }
 }
 
@@ -106,15 +115,16 @@ $(function(){
   var scrollStopEvent = new $.Event("scrollstop");
   var delay = 200;
   var timer;
-  function scrollStopEventTrigger(){
+  function scrollStopEventTrigger(e){
+    console.log(e);
     if (timer) {
       clearTimeout(timer);
     }
     timer = setTimeout(function(){$(window).trigger(scrollStopEvent)}, delay);
   }
-  $(window).on("scroll", scrollStopEventTrigger);
+  $(window).on("scroll", checkScroll);
   $("body").on("touchmove", scrollStopEventTrigger);
-
+  $(window).on(null,function(e){console.log(e)});
 
   $(window).on("unload", initPos);
   $(window).on("scrollstop", function(){
