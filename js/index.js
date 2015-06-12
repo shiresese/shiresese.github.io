@@ -9,7 +9,7 @@ var EPage = {
 };
 var PageName = ["shire", "srss", "sese"];
 
-var currentPage;
+var currentPage = 1;
 
 function changeHash(direction) {
   var next = currentPage + direction;
@@ -18,24 +18,24 @@ function changeHash(direction) {
   } else if(next > 2) {
     next = EPage.SHIRE;
   }
-
+  var event = new $.Event('changehash', {before: currentPage, after: next, direction: direction});
   window.location.hash = PageName[next];
   currentPage = next;
-
+  $(window).trigger(event);
 }
 
 function initPos(){
   console.log("unload");
   if(window.location.hash === "") {
     currentPage = EPage.SRSS;
-    window.scrollTo($("#shire").width(), 0);
+    window.scrollTo($("#shire-s").width(), 0);
   } else {
     if(window.location.hash === "#shire") {
       currentPage = EPage.SHIRE;
       window.scrollTo(0, 0);
     } else if(window.location.hash === "#sese") {
       currentPage = EPage.SESE;
-      window.scrollTo($("#shire").width() + $("#srss").width(), 0);
+      window.scrollTo($("#shire-s").width() + $("#srss-s").width(), 0);
     }
   }
 }
@@ -50,9 +50,9 @@ function animateMove(moveX, moveY, startX, startY, numOfFlame, flame, time){
   window.scrollTo(startX + easeInCubic(flame, moveX, numOfFlame), startY + easeInCubic(flame, moveY, numOfFlame));
   if(numOfFlame > flame){
     window.setTimeout(
-      "animateMove(" + moveX + "," + moveY + "," + startX + "," + startY + "," + numOfFlame + "," + (++flame) + "," + time + ")",
-      time
-      );
+      function() {
+        animateMove(moveX, moveY, startX, startY, numOfFlame, (++flame), time);
+      }, time);
   }
 }
 
@@ -125,6 +125,32 @@ function checkScroll(){
   console.log(x, colWidth);
 }
 
+function smoothScrollTo(page) {
+  switch (page) {
+    case EPage.SHIRE:
+      smoothScroll(0 ,0);
+      break;
+    case EPage.SRSS:
+      smoothScroll($("#shire-s").width() ,0);
+      break;
+    case EPage.SESE:
+      smoothScroll($("#shire-s").width() + $("#srss-s").width() ,0);
+      break;
+  }
+}
+
+var changeHashCallback = function(e) {
+  console.log(e);
+  smoothScrollTo(e.after);
+  $("#sese-s").removeClass("noscroll");
+  if(e.after === EPage.SESE) {
+    setTimeout(function(){
+      if(window.location.hash==="#sese")
+      $("#sese-s").addClass("noscroll");
+    }, 1000);
+  }
+};
+
 $(function(){
   //Event binding
   var scrollStopEvent = new $.Event("scrollstop");
@@ -143,6 +169,8 @@ $(function(){
 
   $(window).on("unload", initPos);
   $(window).on("scrollstop", checkScroll);
+
+  $(window).on("changehash", changeHashCallback);
 
   $(".arrow").on("click", function(){
     switch ($(this).attr("id")){
