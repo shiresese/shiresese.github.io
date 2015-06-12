@@ -6,8 +6,8 @@ var EPage = {
   SHIRE: 0,
   SRSS: 1,
   SESE: 2
-}
-var PageName = ["shire", "srss", "sese"]
+};
+var PageName = ["shire", "srss", "sese"];
 
 
 var currentPage;
@@ -23,7 +23,7 @@ function changeHash(direction) {
   window.location.hash = PageName[next];
   currentPage = next;
 
-};
+}
 
 function initPos(){
   console.log("unload");
@@ -145,7 +145,7 @@ $(function(){
         movePage(EVector.RIGHT);
         break;
     }
-  })
+  });
 
   //Event binding end
 
