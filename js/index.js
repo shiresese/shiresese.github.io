@@ -109,28 +109,28 @@ function movePage(vec){
       break;
   }
 }
-var moveMargin = 20;
+var moveMargin = 50;
 function checkScroll(){
   var x = window.scrollX;
-  var colWidth = $("#shire").width();
-  if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
+  var colWidth = $("#shire-s").width();
+  if(moveMargin < x && x < colWidth - moveMargin * 2){
     changeHash(EVector.RIGHT);
-  } else if(0 < x && x < colWidth * 2 - colWidth - moveMargin){
+  } else if(colWidth - moveMargin * 2 < x && x < colWidth - moveMargin){
     changeHash(EVector.LEFT);
-  } else if(colWidth * 2 + moveMargin < x && x < $("body").width()){
+  } else if(colWidth + moveMargin < x && x < colWidth * 1.5){
     changeHash(EVector.RIGHT);
-  } else if(colWidth + moveMargin < x && x < colWidth * 2 - moveMargin){
+  } else if(colWidth * 1.5 < x && x < colWidth * 2 - moveMargin){
     changeHash(EVector.LEFT);
   }
+  console.log(x, colWidth);
 }
 
 $(function(){
   //Event binding
   var scrollStopEvent = new $.Event("scrollstop");
-  var delay = 200;
+  var delay = 100;
   var timer;
   function scrollStopEventTrigger(e){
-    console.log(e);
     if (timer) {
       clearTimeout(timer);
     }
