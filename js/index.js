@@ -1,13 +1,29 @@
 var EVector = {
-  LEFT: 0,
+  LEFT: -1,
   RIGHT: 1
 };
 var EPage = {
-  SRSS: 0,
-  SHIRE: 1,
+  SHIRE: 0,
+  SRSS: 1,
   SESE: 2
 }
+var PageName = ["shire", "srss", "sese"]
+
+
 var currentPage;
+
+function changeHash(direction) {
+  var next = currentPage + direction;
+  if(next < 0) {
+    next = EPage.SESE;
+  } else if(next > 2) {
+    next = EPage.SHIRE;
+  }
+
+  window.location.hash = PageName[next];
+  currentPage = next;
+
+};
 
 function initPos(){
   console.log("unload");
@@ -114,7 +130,7 @@ $(function(){
   }
   $(window).on("scroll", scrollStopEventTrigger);
   $("body").on("touchmove", scrollStopEventTrigger);
-
+  $(window).on("resize", initPos);
 
   $(window).on("unload", initPos);
   $(window).on("scrollstop", function(){
