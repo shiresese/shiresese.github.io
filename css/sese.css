@@ -14,12 +14,26 @@
   display: table;
   height: 100%;
 }
+#sese-s .news {
+  background-color: #777777;
+  height: 100%;
+  text-align: center;
+  margin-right: auto;
+  padding: 1em;
+}
+#sese-s .news .thumbnails img {
+  width: 20%;
+  margin: 2px;
+}
 #sese-s .profile {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  width: 100%;
+  width: 50%;
   height: 100%;
+}
+#sese-s .small {
+  font-size: small;
 }
 .noscroll {
   width: 100%;
