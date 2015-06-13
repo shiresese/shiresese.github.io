@@ -35,6 +35,7 @@ function initPos(){
       window.scrollTo(0, 0);
     } else if(window.location.hash === "#sese") {
       currentPage = EPage.SESE;
+      $("#sese-s").addClass("noscroll");
       window.scrollTo($("#shire-s").width() + $("#srss-s").width(), 0);
     }
   }
