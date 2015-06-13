@@ -64,3 +64,8 @@ html, body {
   background-color: #3d3d3d;
   width: 100%;
 }
+
+.tooltip {
+  text-align: center;
+  top: -2em;
+}

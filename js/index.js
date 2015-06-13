@@ -152,6 +152,22 @@ var changeHashCallback = function(e) {
   }
 };
 
+var showTooltip = function(e) {
+  console.log(e.target.id);
+  var message = ["shire", "TOP", "sese"];
+  var target;
+  if(e.target.id === "left-arrow") {
+    target = (currentPage-1 < 0)? 2 : currentPage-1;
+  } else if(e.target.id === "right-arrow"){
+    target = (currentPage+1 > 2)? 0 : currentPage+1;
+  }
+  $("#" + e.target.id).append('<div class="tooltip">' + message[target] + '</div>');
+};
+
+var removeTooltip = function() {
+    $(".arrow").find('.tooltip').remove();
+};
+
 $(function(){
   //Event binding
   var scrollStopEvent = new $.Event("scrollstop");
@@ -182,6 +198,12 @@ $(function(){
         changeHash(EVector.RIGHT);
         break;
     }
+    removeTooltip();
+  });
+
+  $(".arrow").on({
+    'mouseenter': showTooltip,
+    'mouseleave': removeTooltip
   });
 
   //Event binding end
