@@ -29,6 +29,7 @@ div {
   position: fixed;
   height: 40%;
   width: 100%;
+  cursor: pointer;
 }
 .shire {
   top: 0;
@@ -46,15 +47,12 @@ div {
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
+.shire:hover {
+  background-color: #222;
+  color: #EEE;
+}
 .shire-name:hover {
   color: #f20d5e;
-  background-color: #222;
-}
-.shire-name:hover ~ .shire-latest-info {
-  transition-property: all;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
-  color: #EEE;
 }
 .shire-latest-info {
   top: 0;
@@ -62,6 +60,12 @@ div {
   right: 0;
   width: 50%;
   margin-top: 30px;
+  transition-property: all;
+  transition-duration: 500ms;
+  transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+.shire-latest-info:hover {
+  color: #f20d5e;
 }
 .shire-latest-info-title,
 .sese-latest-info-title {
@@ -76,6 +80,9 @@ div {
   margin-left: 30px;
   position: absolute;
 }
+.sese-latest-info:hover {
+  color: #e0f916;
+}
 .sese-name {
   margin-right: 10px;
   position: absolute;
@@ -89,14 +96,17 @@ div {
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
+.sese:hover {
+  background-color: #222;
+  color: #EEE;
+}
 .sese-name:hover {
   color: #e0f916;
-  background-color: #222;
 }
-.sese-name:hover ~ .sese-latest-info {
-  transition-property: all;
-  transition-duration: 500ms;
-  transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
+.sese-latest-info:hover {
+  color: #e0f916;
+}
+.sese-latest-info:hover ~ .sese-name {
   color: #EEE;
 }
 .srss {
