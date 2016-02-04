@@ -1,5 +1,6 @@
 html {
-  overflow: hidden;
+  min-width: 720px;
+  overflow-y: auto;
 }
 html,
 body,
@@ -26,7 +27,7 @@ div {
 }
 .shire,
 .sese {
-  position: fixed;
+  position: absolute;
   height: 40%;
   width: 100%;
   cursor: pointer;
@@ -46,6 +47,12 @@ div {
   transition-property: all;
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
+}
+@media screen and (max-width: 800px) {
+  .shire-name {
+    font-size: 22vh;
+    padding-top: 20px;
+  }
 }
 .shire:hover {
   background-color: #222;
