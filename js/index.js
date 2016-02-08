@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
   var openLink, openLinkNewTab;
   $("#cover").fadeOut(500);
   openLink = function(link) {
@@ -23,4 +23,8 @@ $(function() {
   return $(".sese-latest-info").click(openLink("./sese#info"));
 });
 
-$(window).unload(function() {});
+window.onpageshow = function(event) {
+  if (event.persisted) {
+    return $("#cover").fadeOut(500);
+  }
+};
