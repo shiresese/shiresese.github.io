@@ -1,6 +1,7 @@
 html {
   min-width: 720px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 html,
 body,
