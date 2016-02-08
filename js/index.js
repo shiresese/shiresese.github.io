@@ -22,3 +22,5 @@ $(function() {
   $(".sese-name").click(openLink("./sese"));
   return $(".sese-latest-info").click(openLink("./sese#info"));
 });
+
+$(window).unload(function() {});
