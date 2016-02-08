@@ -1,4 +1,4 @@
-window.onload = function() {
+$(function() {
   var openLink, openLinkNewTab;
   $("#cover").fadeOut(500);
   openLink = function(link) {
@@ -21,4 +21,4 @@ window.onload = function() {
   $(".shire-latest-info").click(openLink("./shire#news"));
   $(".sese-name").click(openLink("./sese"));
   return $(".sese-latest-info").click(openLink("./sese#info"));
-};
+});
