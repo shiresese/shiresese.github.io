@@ -33,6 +33,7 @@ a {
   cursor: pointer;
 }
 .shire-name {
+  text-align: center;
   font-size: 40vw;
   line-height: 1;
   transition-property: all;
@@ -61,7 +62,7 @@ a {
 }
 .shire-latest-info-body,
 .sese-latest-info-body {
-  font-size: small;
+  font-size: x-small;
 }
 .sese-latest-info {
   margin: 30px;
@@ -91,6 +92,7 @@ a {
   color: #EEE;
 }
 .srss {
+  text-align: center;
   margin-top: 15px;
-  font-size: 25vw;
+  font-size: 20vw;
 }
