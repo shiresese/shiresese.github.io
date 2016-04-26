@@ -89,6 +89,7 @@ a {
 .sese-latest-info {
   margin-top: 20px;
   margin-left: 30px;
+  width: 50%;
   position: absolute;
 }
 .sese-latest-info:hover {
