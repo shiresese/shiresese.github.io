@@ -127,4 +127,8 @@ a {
   font-size: 10vh;
   position: absolute;
   bottom: 0;
+  height: 15%;
+}
+.srss img {
+  height: 100%;
 }

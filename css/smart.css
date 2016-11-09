@@ -33,7 +33,6 @@ a {
   cursor: pointer;
 }
 .shire-name {
-  text-align: center;
   font-size: 40vw;
   line-height: 1;
   transition-property: all;
@@ -92,7 +91,10 @@ a {
   color: #EEE;
 }
 .srss {
-  text-align: center;
   margin-top: 15px;
-  font-size: 20vw;
+  font-size: 25vw;
+  text-align: center;
+}
+.srss img {
+  width: 80%;
 }
