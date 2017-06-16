@@ -75,6 +75,9 @@ a {
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
+.shire-latest-info img {
+  max-width: 90%;
+}
 .shire-latest-info:hover {
   color: #f20d5e;
 }
@@ -127,8 +130,4 @@ a {
   font-size: 10vh;
   position: absolute;
   bottom: 0;
-  height: 15%;
-}
-.srss img {
-  height: 100%;
 }

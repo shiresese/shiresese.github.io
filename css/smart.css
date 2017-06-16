@@ -63,6 +63,10 @@ a {
 .sese-latest-info-body {
   font-size: small;
 }
+.shire-latest-info-body img,
+.sese-latest-info-body img {
+  max-width: 100%;
+}
 .sese-latest-info {
   margin: 30px;
 }
@@ -93,8 +97,4 @@ a {
 .srss {
   margin-top: 15px;
   font-size: 25vw;
-  text-align: center;
-}
-.srss img {
-  width: 80%;
 }
