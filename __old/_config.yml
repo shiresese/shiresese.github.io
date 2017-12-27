@@ -1,6 +1,0 @@
-auto: true
-server: true
-markdown: kramdown
-basePath: "http://shiresese.github.io"
-permalink: none
-categories: [index, document]
