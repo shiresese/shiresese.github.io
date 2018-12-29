@@ -5,6 +5,8 @@ title: About
 #### Info
 * Circle: しれせせ
 * Mail: shiresese(at)gmail.com
+* [twitter](https://twitter.com/shiresese)
+
 
 #### Member
 * shire
