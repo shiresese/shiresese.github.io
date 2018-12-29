@@ -1,2 +1,0 @@
-webpackJsonp([84471446244139],{410:function(t,e){t.exports={data:{site:{siteMetadata:{title:"しれせせ",author:"shiresese"}},markdownRemark:{id:"/Users/se/Documents/GitHub/srss/src/pages/products/negai01_sound/index.md absPath of file >>> MarkdownRemark",html:"<ul>\n<li>初出: C92 2017/08/11 (1日目)</li>\n</ul>",frontmatter:{title:"『未完成の「ねがいごと」 01.サイドヒラカレルハコノ』オリジナルサウンドトラック 「正義のヒーローは、 きっと私を救ってくれない。」",date:"2017/12/29"}}},pathContext:{slug:"/products/negai01_sound/"}}}});
-//# sourceMappingURL=path---products-negai-01-sound-dee09d171fd947e004ea.js.map
